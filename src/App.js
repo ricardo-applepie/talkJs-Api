@@ -1,7 +1,7 @@
-import './App.css';
+import React from 'react';
 import Talk from 'talkjs';
 import { useEffect } from 'react';
-import React from 'react';
+import './App.css';
 
 function App() {
   const talkjsContainer = React.createRef();
