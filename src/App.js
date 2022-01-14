@@ -1,20 +1,20 @@
-
 import './App.css';
 import Talk from 'talkjs';
-import { useEffect} from 'react';
-import React from "react"
+import { useEffect } from 'react';
+import React from 'react';
+
 function App() {
   const talkjsContainer = React.createRef();
   useEffect(() => {
     const currentUser = {
       id: 1,
-      name: "rick",
-      email: "rick@gmail.com",
-      photoUrl: "myusrl",
+      name: 'rick',
+      email: 'rick@gmail.com',
+      photoUrl: 'myusrl',
       welcomeMessage: 'Hey there! How are you? :-)',
       role: 'default',
-    }
- 
+    };
+
     Talk.ready.then(() => {
       var me = new Talk.User({
         id: currentUser.id,
@@ -33,39 +33,28 @@ function App() {
         role: 'default',
       });
 
-      let test = window.talkSession = new Talk.Session({
+      let test = (window.talkSession = new Talk.Session({
         appId: 't7AkyA9y',
         me: me,
-      });
-    
+      }));
 
       var conversation = window.talkSession.getOrCreateConversation(
         Talk.oneOnOneId(me, other)
       );
 
-  
       conversation.setParticipant(me);
       conversation.setParticipant(other);
       console.log(conversation);
       var inbox = window.talkSession.createInbox({ selected: conversation });
-      console.log(inbox)
+      console.log(inbox);
 
-
-
-      
       inbox.mount(talkjsContainer.current);
-
     });
-
   }, []);
-
-  
-
 
   return (
     <div className="App">
-      <p>testing</p>
-      <div ref={talkjsContainer }></div>
+      <div ref={talkjsContainer}></div>
     </div>
   );
 }
