@@ -5,6 +5,7 @@ import './App.css';
 
 function App() {
   const talkjsContainer = React.createRef();
+
   useEffect(() => {
     const currentUser = {
       id: 1,
