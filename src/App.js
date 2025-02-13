@@ -34,7 +34,7 @@ function App() {
         role: 'default',
       });
 
-      let test = (window.talkSession = new Talk.Session({
+      const test = (window.talkSession = new Talk.Session({
         appId: 't7AkyA9y',
         me: me,
       }));
@@ -47,8 +47,6 @@ function App() {
       conversation.setParticipant(other);
       console.log(conversation);
       var inbox = window.talkSession.createInbox({ selected: conversation });
-      console.log(inbox);
-
       inbox.mount(talkjsContainer.current);
     });
   }, []);
